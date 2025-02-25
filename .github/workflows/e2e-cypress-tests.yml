@@ -1,0 +1,27 @@
+name: e2e cypress test
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: 'Run E2E Tests'
+        required: false
+        default: 'Run e2e'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+    - run: npm install
+    - run: npm test
