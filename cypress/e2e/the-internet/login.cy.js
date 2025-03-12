@@ -1,10 +1,10 @@
-describe("Login Page", () => {
-  const userNameInput = "#username";
-  const passwordInput = "#password";
-  const loginButton = "#login button";
+import LoginPage from "../page-objects/loginPage";
+const testUser = require("../../fixtures/user.json");
 
-  const username = "tomsmith";
-  const password = "SuperSecretPassword!";
+describe("Login Page", () => {
+  const loginPage = new LoginPage();
+  const username = testUser.name;
+  const password = testUser.password;
   const testCases = [
     {
       description: "User can login with valid credentials",
@@ -14,14 +14,14 @@ describe("Login Page", () => {
     },
     {
       description: "User can't login with invalid user name",
-      username: "username",
+      username: "user",
       password,
       message: "Your username is invalid!",
     },
     {
       description: "User can't login with invalid password",
       username,
-      password: "SecretPassword",
+      password: "password",
       message: "Your password is invalid!",
     },
   ];
@@ -32,12 +32,9 @@ describe("Login Page", () => {
 
   testCases.forEach((testCase) => {
     it(testCase.description, () => {
-      cy.get(userNameInput).type(testCase.username);
-      cy.get(passwordInput).type(testCase.password);
-
-      cy.get(loginButton).click();
-
-      cy.get("#flash-messages").should("contains.text", testCase.message);
+      loginPage.isLoaded();
+      loginPage.loginAsUser(testCase.username, testCase.password);
+      loginPage.verifyMessage(testCase.message);
     });
   });
 });
