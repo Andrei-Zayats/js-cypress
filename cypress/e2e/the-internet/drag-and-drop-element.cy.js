@@ -4,7 +4,7 @@ describe("Drag and Drop Page", () => {
   const elements = "#columns>div";
 
   beforeEach(() => {
-    cy.visit("https://the-internet.herokuapp.com/drag_and_drop");
+    cy.visit("drag_and_drop");
   });
 
   it("Drag and drop elements", () => {
