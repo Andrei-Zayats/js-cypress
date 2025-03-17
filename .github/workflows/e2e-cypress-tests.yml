@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     env:
-      CYPRESS_NAME: ${{ vars.NAME }}
+      CYPRESS_USER: ${{ vars.USER }}
       CYPRESS_PASSWORD: ${{ vars.PASSWORD }}
 
     runs-on: ubuntu-latest

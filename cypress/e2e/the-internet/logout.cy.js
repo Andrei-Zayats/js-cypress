@@ -7,7 +7,7 @@ describe("Secure Page", () => {
 
   beforeEach(() => {
     cy.visit(loginPage.getPath());
-    loginPage.loginAsUser(Cypress.env("user"), Cypress.env("password"));
+    loginPage.loginAsUser(Cypress.env("USER")  || process.env.USER, Cypress.env("PASSWORD") || process.env.PASSWORD);
   });
 
   it("User can logout", () => {
