@@ -4,7 +4,7 @@ describe("Add/Remove Elements Page", () => {
   const deleteButtons = "#elements button";
 
   beforeEach(() => {
-    cy.visit("https://the-internet.herokuapp.com/add_remove_elements/");
+    cy.visit("add_remove_elements/");
   });
 
   it("add elements", () => {

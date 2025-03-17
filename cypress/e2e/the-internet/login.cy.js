@@ -1,10 +1,12 @@
 import LoginPage from "../page-objects/loginPage";
-const testUser = require("../../fixtures/user.json");
+import SecurePage from "../page-objects/securePage";
 
 describe("Login Page", () => {
   const loginPage = new LoginPage();
-  const username = testUser.name;
-  const password = testUser.password;
+  const securePage = new SecurePage();
+  const username = Cypress.env('user');
+  const password =  Cypress.env('password');
+
   const testCases = [
     {
       description: "User can login with valid credentials",
@@ -27,14 +29,14 @@ describe("Login Page", () => {
   ];
 
   beforeEach(() => {
-    cy.visit("https://the-internet.herokuapp.com/login");
+    cy.visit("login");
   });
 
   testCases.forEach((testCase) => {
     it(testCase.description, () => {
       loginPage.isLoaded();
       loginPage.loginAsUser(testCase.username, testCase.password);
-      loginPage.verifyMessage(testCase.message);
+      securePage.verifyMessage(testCase.message);
     });
   });
 });

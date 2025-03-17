@@ -1,14 +1,18 @@
 import BasePage from "./basePage";
 
 export default class LoginPage extends BasePage {
-  #pageUrl = "https://the-internet.herokuapp.com/login";
+  #pagePath = "login";
   #userNameInput = () => cy.get("#username");
   #passwordInput = () => cy.get("#password");
   #loginButton = () => cy.get("#login button");
   #messageOnPage = () => cy.get("#flash-messages");
 
   isLoaded = () => {
-    this.isUrlValid(this.#pageUrl);
+    this.isUrlValid(this.#pagePath);
+  };
+
+  getPath = () => {
+    return this.#pagePath;
   };
 
   loginAsUser = (userName, userPassword) => {
