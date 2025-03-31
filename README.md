@@ -15,6 +15,19 @@ To install all packages after cloning the repository run:
 ```bash
 npm install
 ```
+
+Add environment variables befor run tests:
+```
+CYPRESS_USER=tomsmith
+CYPRESS_PASSWORD=SuperSecretPassword!
+```
+
+If you need video or functionality from https://cloud.cypress.io add environment variables :
+```
+CYPRESS_KEY=<Record Keys from cloud.cypress.io>
+CYPRESS_PROJECT_ID=<Project ID from cloud.cypress.io>
+```
+
 Run tests in headless mode:
 ```bash
 npm test
