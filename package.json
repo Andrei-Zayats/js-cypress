@@ -4,11 +4,10 @@
   "description": "",
   "scripts": {
     "test": "cypress run",
-    "test:rec": "cypress run --record --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
+    "test:rec": "cypress run --record --key $CYPRESS_KEY",
     "test:dev": "cypress open"
   },
   "devDependencies": {
-    "cypress": "^14.0.3",
-    "dotenv": "^16.4.7"
+    "cypress": "^14.0.3"
   }
 }
