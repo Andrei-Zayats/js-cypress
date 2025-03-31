@@ -1,4 +1,4 @@
-name: e2e cypress test
+name: e2e cloud cypress test
 
 on:
   push:
@@ -14,10 +14,12 @@ on:
         default: 'Run e2e'
 
 jobs:
-  e2e-tests:
+  e2e-cloud-tests:
     env:
       CYPRESS_USER: ${{ vars.CYPRESS_USER }}
       CYPRESS_PASSWORD: ${{ vars.CYPRESS_PASSWORD }}
+      CYPRESS_KEY: ${{ vars.CYPRESS_KEY }}
+      CYPRESS_PROJECT_ID: ${{ vars.CYPRESS_PROJECT_ID }}
 
     runs-on: ubuntu-latest
 
@@ -28,4 +30,4 @@ jobs:
       with:
         node-version: '22.x'
     - run: npm install
-    - run: npm test
+    - run: npm run test:rec

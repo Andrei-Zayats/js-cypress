@@ -133,3 +133,4 @@ dist
 videos/
 screenshots/
 cypress.env.json
+env-local.sh

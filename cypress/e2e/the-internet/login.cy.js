@@ -4,8 +4,8 @@ import SecurePage from "../page-objects/securePage";
 describe("Login Page", () => {
   const loginPage = new LoginPage();
   const securePage = new SecurePage();
-  const username = Cypress.env("USER") || process.env.USER;
-  const password = Cypress.env("PASSWORD") || process.env.PASSWORD;
+  const username = Cypress.env("USER");
+  const password = Cypress.env("PASSWORD");
 
   const testCases = [
     {
